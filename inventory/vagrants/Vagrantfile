@@ -21,8 +21,6 @@ Vagrant.configure("2") do |config|
 
 
 
-
-
   ## Performance options ##
   # tweak or remove these as you see fit:
   config.vm.box_check_update = false
