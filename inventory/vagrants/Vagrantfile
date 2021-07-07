@@ -5,6 +5,7 @@ Vagrant.configure("2") do |config|
     config.vm.define "ubuntu#{i}" do | ubuntu |
       ubuntu.vm.box = "ubuntu/bionic64"
       ubuntu.vm.network "private_network", ip: "192.168.50.#{i}"
+      ubuntu.vm.provision :shell, path: "newuser.sh"
     end
   end 
 
@@ -13,13 +14,9 @@ Vagrant.configure("2") do |config|
     config.vm.define "centos#{i}" do | centos |
       centos.vm.box = "centos/8"
       centos.vm.network "private_network", ip: "192.168.50.#{i}"
+      centos.vm.provision :shell, path: "newuser.sh"
     end
   end
-
-
-
-
-
 
   ## Performance options ##
   # tweak or remove these as you see fit:
